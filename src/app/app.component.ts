@@ -1,10 +1,14 @@
+import { IPlanet } from './models';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'planets-app';
+  selectedPlanet: IPlanet;
+
+  planetDataChanged(planetData: IPlanet): void {
+    this.selectedPlanet = planetData;
+  }
 }

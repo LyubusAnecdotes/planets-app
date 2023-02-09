@@ -1,0 +1,17 @@
+<mat-form-field
+  *ngIf="planets$ | async as planets; else loading"
+  appearance="fill"
+>
+  <mat-label>Choose an option</mat-label>
+  <mat-select (selectionChange)="changePlanetDetails($event)">
+    <mat-option *ngFor="let planet of planets?.results" [value]="planet">
+      {{ planet.name }}</mat-option
+    >
+  </mat-select>
+</mat-form-field>
+
+<ng-template #loading>
+  <div class="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
